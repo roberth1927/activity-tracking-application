@@ -29,19 +29,17 @@ La aplicación Activity Tracking Application es una plataforma versátil y fáci
         npm install
    ```
   
-4. Luego, importa archivo .env y configura base de datos:
-
-5. Genera keyde laravel:
+4. Genera key de laravel:
     ```bash
         php artisan key:generate
     ```
 
-6. Con tu servidor local ejecutandose genera las migraciones:
+5. Con tu servidor local ejecutandose genera las migraciones:
     ```bash
         php artisan migrate
     ```
 
-7. Ejecuta :
+6. Ejecuta :
     ```bash
         npm run dev
     ```

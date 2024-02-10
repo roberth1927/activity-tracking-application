@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row align-items-center">
-                            <div class="col-md-6 text-center">
+                            <div class="col-md-6 text-center rounded">
                                 <img src="{{ asset('imagen/imagen.jpg') }}" alt="Imagen" class="img-fluid">
                             </div>
                             <div class="col-md-6 d-flex align-items-center">

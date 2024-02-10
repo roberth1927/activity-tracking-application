@@ -12,7 +12,7 @@ class Actividades extends Component
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $user_id, $descripcion, $estado, $horas, $fecha, $actividad_id;
+    public $selected_id, $keyWord, $user_id, $descripcion, $estado, $horas, $fecha, $actividad_id, $titleActivity;
     public $tiempos = [];
     public $mostrarFormulario = false;
     public $totalHoras = 0;
@@ -33,7 +33,6 @@ class Actividades extends Component
 
         return view('livewire.actividades.view', compact('actividades'));
     }
-
 
     public function cancel()
     {
@@ -76,10 +75,12 @@ class Actividades extends Component
         $this->estado = $record->estado;
     }
 
-    public function getTimes($id)
+    public function getTimes($actividad)
     {
-        $this->actividad_id = $id;
-        $this->tiempos = Tiempo::where('actividad_id', $id)->get();
+        $this->actividad_id = $actividad['id'];
+        $this->titleActivity = $actividad['descripcion'];
+        $this->stateActivity = $actividad['estado'];
+        $this->tiempos = Tiempo::where('actividad_id', $this->actividad_id)->get();
         $this->totalHoras = $this->tiempos->sum('horas');
     }
 
@@ -99,6 +100,11 @@ class Actividades extends Component
 
         if (($totalHoras + $this->horas) > 8) {
             $this->errorMessage =('No se pueden agregar más horas, ya se alcanzó el límite de 8 horas para esta actividad.');
+            return;
+        }
+
+        if ($this->stateActivity) {
+            $this->errorMessage =('No se puede agregar tiempo, esta actividad ya esta completada.');
             return;
         }
 
@@ -133,8 +139,6 @@ class Actividades extends Component
             $this->dispatchBrowserEvent('closeModal');
             session()->flash('message', 'Actividade Successfully updated.');
         }
-
-
 
     }
 

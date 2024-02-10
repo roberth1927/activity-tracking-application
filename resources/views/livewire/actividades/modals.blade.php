@@ -79,12 +79,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="">Tiempos Registrados</h5>
+                <h2 class="modal-title" id="">Tiempos Registrados</h2>
                 <button wire:click.prevent="cancel()" type="button" class="btn-close" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+                <h3 class="text-center p-2 rounded" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">{{ $titleActivity }}</h3>
                 <div class="table-responsive">
                     <table class="table table-bordered table-sm">
                         <thead class="thead">
@@ -116,7 +116,6 @@
 
             @if($mostrarFormulario)
             <div class="m-3">
-                    <hr/>
                     <h5 class="modal-title" id="">Agregar Tiempo</h5>
 
                 @if ($errorMessage != '')

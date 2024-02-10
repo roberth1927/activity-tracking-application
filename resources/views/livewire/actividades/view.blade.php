@@ -62,7 +62,7 @@
                                             @mouseenter="scale = 1.2" @mouseleave="scale = 1"
                                             data-bs-target="#getTimes"
                                             class="btn btn-sm btn-info ms-2 me-2 rounded"
-                                            wire:click="getTimes({{ $row->id }})">
+                                            wire:click="getTimes({{ $row }})">
                                             <i class="fa fa-clock"></i>
                                         </a>
 
