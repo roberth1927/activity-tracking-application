@@ -35,7 +35,6 @@ class Actividades extends Component
     }
 
 
-
     public function cancel()
     {
         $this->resetInput();
@@ -113,7 +112,6 @@ class Actividades extends Component
         $this->dispatchBrowserEvent('closeModal');
         session()->flash('message', 'Tiempo agregado con éxito.');
     }
-
 
 
     public function update()

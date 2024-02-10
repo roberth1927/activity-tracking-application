@@ -80,7 +80,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="">Tiempos Registrados</h5>
-                <button type="button" wire:click.prevent="showForm()" class="btn btn-primary">+</button>
+                <button wire:click.prevent="cancel()" type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
@@ -90,7 +91,7 @@
                             <tr>
                                 <td>#</td>
                                 <th>Fecha</th>
-                                <th>Tiempo</th>
+                                <th>Horas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -98,7 +99,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $row->fecha }}</td>
-                                    <td>{{ $row->horas }}</td>
+                                    <td>{{ $row->horas }} </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -107,9 +108,10 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <div class="float-end">{{ $actividades->links() }}</div>
                 </div>
+
             </div>
+            <button type="button" wire:click.prevent="showForm()" class="btn btn-primary m-3">Agregar tiempo</button>
 
 
             @if($mostrarFormulario)
@@ -146,9 +148,9 @@
                     data-bs-dismiss="modal">Close</button>
                     <button type="button" wire:click.prevent="saveTime()" class="btn btn-primary">Save</button>
                 </div>
-            @endif
 
             </div>
+            @endif
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -78,7 +78,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 vh-100 overflow-hidden " style="background: linear-gradient(to top, #150E1A, #4F46E5); font-family: 'Poppins', sans-serif;">
             @yield('content')
         </main>
     </div>

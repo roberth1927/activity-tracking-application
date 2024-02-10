@@ -23,11 +23,11 @@
 
 				<div class="card-body">
 						@include('livewire.actividades.modals')
-				<div class="table-responsive">
+				<div class="table-responsive rounded">
 					<table class="table table-bordered table-sm">
 						<thead class="thead">
 							<tr>
-								<td>#</td>
+								<td >#</td>
 								<th>Descripcion</th>
 								<th>Estado</th>
 								<td>ACTIONS</td>
@@ -39,89 +39,47 @@
 								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->descripcion }}</td>
 								<td>{{ $row->estado ? 'Completada' : 'Pendiente' }}</td>
-							{{-- 	<td width="90">
-									<div class="dropdown">
-										<a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											Actions
-										</a>
-										<ul class="dropdown-menu">
-											<li>
-                                                <a data-bs-toggle="modal" data-bs-target="#updateDataModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Edit </a>
-                                            </li>
-
-                                            <li><a data-bs-toggle="modal"
-                                                   data-bs-target="#getTimes"
-                                                   class="dropdown-item"
-                                                   wire:click="getTimes({{$row->id}})"><i class="fa fa-edit"></i> Tiempos </a>
-                                            </li>
-
-											<li><a class="dropdown-item" onclick="confirm('Confirm Delete Actividade id {{$row->id}}? \nDeleted Actividades cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>
-										</ul>
-									</div>
-								</td> --}}
-
 
                                 <td width="90" class="text-center">
                                     <div class="btn-group">
+                                        <a data-bs-toggle="modal"
+                                            data-bs-placement="top"
+                                            title="Editar"
+                                            x-data="{ scale: 1 }"
+                                            x-bind:style="{ transform: 'scale(' + scale + ')',transition: 'transform 0.3s ease' }"
+                                            @mouseenter="scale = 1.2" @mouseleave="scale = 1"
+                                            data-bs-target="#updateDataModal"
+                                            class="btn btn-sm btn-success rounded"
+                                            wire:click="edit({{ $row->id }})">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
 
-                                            <a data-bs-toggle="modal"
-                                                x-data="{ scale: 1 }"
-                                                x-bind:style="{ transform: 'scale(' + scale + ')',transition: 'transform 0.3s ease' }"
-                                                @mouseenter="scale = 1.2" @mouseleave="scale = 1"
-                                                data-bs-target="#updateDataModal"
-                                                class="btn btn-sm btn-success rounded"
-                                                wire:click="edit({{ $row->id }})">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
+                                        <a data-bs-toggle="modal"
+                                            data-bs-placement="top"
+                                            title="Ver Horas"
+                                            x-data="{ scale: 1 }"
+                                            x-bind:style="{ transform: 'scale(' + scale + ')',transition: 'transform 0.3s ease' }"
+                                            @mouseenter="scale = 1.2" @mouseleave="scale = 1"
+                                            data-bs-target="#getTimes"
+                                            class="btn btn-sm btn-info ms-2 me-2 rounded"
+                                            wire:click="getTimes({{ $row->id }})">
+                                            <i class="fa fa-clock"></i>
+                                        </a>
 
-                                            <a data-bs-toggle="modal"
-                                                x-data="{ scale: 1 }"
-                                                x-bind:style="{ transform: 'scale(' + scale + ')',transition: 'transform 0.3s ease' }"
-                                                @mouseenter="scale = 1.2" @mouseleave="scale = 1"
-                                                data-bs-target="#getTimes"
-                                                class="btn btn-sm btn-info ms-2 me-2 rounded"
-                                                wire:click="getTimes({{ $row->id }})">
-                                                <i class="fa fa-clock"></i>
-                                            </a>
-
-                                            <a class="btn btn-sm btn-danger"
-                                                onclick="confirm('Confirm Delete Task id {{ $row->id }}? \nDeleted Tasks cannot be recovered!')||event.stopImmediatePropagation()"
-                                                wire:click="destroy({{ $row->id }})" x-data="{ scale: 1 }"
-                                                x-bind:style="{ transform: 'scale(' + scale + ')',
-                                                    transition: 'transform 0.3s ease' }"
-                                                @mouseenter="scale = 1.2" @mouseleave="scale = 1">
-                                                <i class="fa fa-trash rounded"></i>
-                                            </a>
+                                        <a data-bs-toggle="tooltip"
+                                            data-bs-placement="top"
+                                            title="Eliminar"
+                                            class="btn btn-sm btn-danger"
+                                            onclick="confirm('¿Confirmar eliminación de la tarea id {{ $row->id }}? \n¡Las tareas eliminadas no se pueden recuperar!')||event.stopImmediatePropagation()"
+                                            wire:click="destroy({{ $row->id }})" x-data="{ scale: 1 }"
+                                            x-bind:style="{ transform: 'scale(' + scale + ')',
+                                                transition: 'transform 0.3s ease' }"
+                                            @mouseenter="scale = 1.2" @mouseleave="scale = 1">
+                                            <i class="fa fa-trash rounded"></i>
+                                        </a>
                                     </div>
+
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 							</tr>

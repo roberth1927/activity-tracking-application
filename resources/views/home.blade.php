@@ -12,7 +12,7 @@
                     <h5>Hola <strong>{{ Auth::user()->name }},</strong> {{ __('Vista general de las actividades ') }}</h5>
                     <hr>
                     <div class="row w-100">
-                        <div class="col-md-3" x-data="{ scale: 1 }">
+                        <div class="col-md-4" x-data="{ scale: 1 }">
                             <div class="card border-warning mx-sm-1 p-3"
                                  x-bind:style="{ transform: 'scale(' + scale + ')', transition: 'transform 0.3s ease' }"
                                  @mouseover="scale = 1.1"
@@ -24,7 +24,7 @@
                                 <div class="text-warning text-center mt-2"><h1>{{ $totalActividades }}</h1></div>
                             </div>
                         </div>
-                        <div class="col-md-3" x-data="{ scale: 1 }">
+                        <div class="col-md-4" x-data="{ scale: 1 }">
                             <div class="card border-success mx-sm-1 p-3"
                                  x-bind:style="{ transform: 'scale(' + scale + ')', transition: 'transform 0.3s ease' }"
                                  @mouseover="scale = 1.1"
@@ -36,7 +36,7 @@
                                 <div class="text-success text-center mt-2"><h1>{{ $totalCompletadas }}</h1></div>
                             </div>
                         </div>
-                        <div class="col-md-3" x-data="{ scale: 1 }">
+                        <div class="col-md-4" x-data="{ scale: 1 }">
                             <div class="card border-danger mx-sm-1 p-3"
                                  x-bind:style="{ transform: 'scale(' + scale + ')', transition: 'transform 0.3s ease' }"
                                  @mouseover="scale = 1.1"
